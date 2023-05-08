@@ -1,0 +1,24 @@
+<resources>
+
+	<string name="app_name">Hangman</string>
+	<string name="action_back">Tillbaka</string>
+	<string name="action_new_game">Spela!</string>
+	<string name="action_about">Om</string>
+	<string name="main_new_game">Spela!</string>
+	<string name="main_about">Om</string>
+	<string name="game_fails_remaining">Missar kvar</string>
+	<string name="game_guess">Gissa!</string>
+	<string name="game_over">Slut</string>
+	<string name="game_no_letter">Du måste ange en bokstav i fältet</string>
+	<string name="game_already_used">är redan använd - försök igen</string>
+	<string name="result_title">Slut</string>
+	<string name="result_won">Du vann!</string>
+	<string name="result_lost">Du förlorade!</string>
+	<string name="result_the_word">Ordet var:</string>
+	<string name="result_fails_remaining">Antal missar kvar</string>
+	<string name="result_return">Huvudmenyn</string>
+	<string name="about_title">Om</string>
+	<string name="about_message">Programmerad av GT?</string>
+
+</resources>
+
