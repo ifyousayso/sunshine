@@ -18,7 +18,7 @@ public class AboutActivity extends AppCompatActivity {
 
 		// Set up the top app bar:
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		this.getSupportActionBar().setTitle(this.getString(R.string.app_name) + ": " + this.getString(R.string.about_title));
+		this.getSupportActionBar().setTitle(this.getString(R.string.app_name) + ": " + this.getString(R.string.global_about));
 	}
 
 	// Purpose: When the only options item is selected, close the activity.

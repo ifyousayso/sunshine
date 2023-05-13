@@ -4,15 +4,15 @@
 	xmlns:app="http://schemas.android.com/apk/res-auto">
 
 	<item
-		android:id="@+id/action_new_game"
+		android:id="@+id/global_new_game"
 		android:icon="@drawable/ic_baseline_play_arrow_24"
-		android:title="@string/action_new_game"
+		android:title="@string/global_new_game"
 		app:showAsAction="always" />
 
 	<item
-		android:id="@+id/action_about"
+		android:id="@+id/global_about"
 		android:icon="@drawable/ic_baseline_info_24"
-		android:title="@string/action_about"
+		android:title="@string/global_about"
 		app:showAsAction="always" />
 
 </menu>

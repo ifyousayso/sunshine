@@ -22,14 +22,21 @@ public class ResultActivity extends AppCompatActivity {
 
 		// Set up the top app bar:
 		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-		this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.ic_baseline_sentiment_very_dissatisfied_24);
+		this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_wb_sunny_24);
 		this.getSupportActionBar().setTitle(this.getString(R.string.app_name) + ": " + this.getString(R.string.result_title));
 
 		// Receive the outcome data:
 		Bundle bundle = this.getIntent().getExtras();
-		((TextView) this.findViewById(R.id.outcome_text)).setText(bundle.getBoolean("SUCCESS") ? R.string.result_won : R.string.result_lost);
-		((TextView) this.findViewById(R.id.the_word_text)).setText(this.getString(R.string.result_the_word) + " " + bundle.getString("THE_WORD"));
-		((TextView) this.findViewById(R.id.fails_remaining_text)).setText(this.getString(R.string.result_fails_remaining) + ": " + String.valueOf(bundle.getInt("FAILS_REMAINING")));
+		TextView outcomeTextView = (TextView) this.findViewById(R.id.outcome_text);
+		String outcomeText;
+		if (bundle.getBoolean("SUCCESS")) {
+			outcomeText = this.getString(R.string.result_won) + "!";
+		} else {
+			outcomeText = this.getString(R.string.result_lost) + ".";
+		}
+		outcomeTextView.setText(outcomeText);
+		((TextView) this.findViewById(R.id.the_word_text)).setText(this.getString(R.string.result_the_word) + ": " + bundle.getString("THE_WORD"));
+		((TextView) this.findViewById(R.id.fails_remaining_text)).setText(this.getString(R.string.global_fails_remaining) + ": " + String.valueOf(bundle.getInt("FAILS_REMAINING")));
 	}
 
 	// Purpose: Load the options menu: The about item.
@@ -49,13 +56,13 @@ public class ResultActivity extends AppCompatActivity {
 	public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 		Intent intent;
 		switch (item.getItemId()) {
-			case R.id.action_new_game:
+			case R.id.global_new_game:
 				// Start GameActivity and finish this one:
 				intent = new Intent(this, GameActivity.class);
 				this.startActivity(intent);
 				this.finish();
 				return true;
-			case R.id.action_about:
+			case R.id.global_about:
 				// Start AboutActivity:
 				intent = new Intent(this, AboutActivity.class);
 				this.startActivity(intent);
