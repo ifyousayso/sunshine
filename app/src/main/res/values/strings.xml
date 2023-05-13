@@ -7,7 +7,7 @@
 	<string name="main_new_game">Spela!</string>
 	<string name="main_about">Om</string>
 	<string name="game_fails_remaining">Missar kvar</string>
-	<string name="game_guess">Gissa!</string>
+	<string name="game_guess">&gt;&gt;</string>
 	<string name="game_over">Slut</string>
 	<string name="game_no_letter">Du måste ange en bokstav i fältet</string>
 	<string name="game_already_used">är redan använd - försök igen</string>

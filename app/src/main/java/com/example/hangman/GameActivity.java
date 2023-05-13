@@ -24,8 +24,8 @@ public class GameActivity extends AppCompatActivity {
 	private ArrayList<Character> guessedChars = new ArrayList<Character>();
 	private TextView answerText;
 	private TextView failsRemainingText;
-	private TextView lettersText;
-	private EditText guessEdit;
+//	private TextView lettersText;
+//	private EditText guessEdit;
 	private boolean gameOver = false;
 
 	private String charsToString(char[] chars) {
@@ -55,8 +55,8 @@ public class GameActivity extends AppCompatActivity {
 		this.art = (Art) this.findViewById(R.id.hangman_art);
 		this.answerText = (TextView) this.findViewById(R.id.answer_text);
 		this.failsRemainingText = (TextView) this.findViewById(R.id.fails_remaining_text);
-		this.lettersText = (TextView) this.findViewById(R.id.missed_text);
-		this.guessEdit = (EditText) this.findViewById(R.id.guess_edit);
+//		this.lettersText = (TextView) this.findViewById(R.id.missed_text);
+//		this.guessEdit = (EditText) this.findViewById(R.id.guess_edit);
 
 		// Draw the dashes:
 		this.answerChars = new char[this.theWord.length()];
@@ -68,8 +68,9 @@ public class GameActivity extends AppCompatActivity {
 		// Show fails remaining:
 		this.failsRemainingText.setText(this.getString(R.string.game_fails_remaining) + ": " + this.failsRemaining);
 
+/*
 		// Listen to various Enter keys and click the guess button:
-		this.guessEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+ 		this.guessEdit.setOnEditorActionListener(new TextView.OnEditorActionListener() {
 			@Override
 			public boolean onEditorAction(TextView view, int actionId, KeyEvent event) {
 				// (actionId != 0 && event == null) || (actionId == 0 && event.getAction() == KeyEvent.ACTION_DOWN && event.getKeyCode() == 66)
@@ -81,13 +82,14 @@ public class GameActivity extends AppCompatActivity {
 
 				// Soft Enter || Hard Enter (main) down -- filter out hard Enter (main) up.
 				if (actionId != 0 || event.getAction() == KeyEvent.ACTION_DOWN) {
-					clickGuess(findViewById(R.id.guess_button));
+					clickGuess(findViewById(R.id.button_guess));
 					return true; // The event has been handled.
 				}
 
 				return false;
 		}
 		});
+*/
 	}
 
 	// Purpose: Load the options menu - The about item.
@@ -131,15 +133,17 @@ public class GameActivity extends AppCompatActivity {
 			return;
 		}
 
-		// There's no letter in the EditText.
-		if (this.guessEdit.getText().length() != 1) {
-			Tools.toast(this, this.getString(R.string.game_no_letter));
-			return;
-		}
+//		// There's no letter in the EditText.
+//		if (this.guessEdit.getText().length() != 1) {
+//			Tools.toast(this, this.getString(R.string.game_no_letter));
+//			return;
+//		}
 
-		// Read the letter and reset the field:
-		char guess = this.guessEdit.getText().charAt(0);
-		this.guessEdit.setText("");
+//		// Read the letter and reset the field:
+//		char guess = this.guessEdit.getText().charAt(0);
+//		this.guessEdit.setText("");
+
+		char guess = 'A';
 
 		// The letter is already used.
 		if (this.guessedChars.contains(guess)) {
@@ -164,7 +168,7 @@ public class GameActivity extends AppCompatActivity {
 			this.art.progress();
 			this.failsRemaining--;
 			this.failsRemainingText.setText(this.getString(R.string.game_fails_remaining) + ": " + (this.failsRemaining >= 0 ? this.failsRemaining : 0)); // Don't display -1.
-			this.lettersText.setText(this.lettersText.getText() + (this.lettersText.getText().length() == 0 ? "" : ", ") + guess);
+//			this.lettersText.setText(this.lettersText.getText() + (this.lettersText.getText().length() == 0 ? "" : ", ") + guess);
 		} else { // On at least one hit, update the displayed guessed word:
 			this.answerText.setText(this.charsToString(this.answerChars));
 			this.gameOver = true;
@@ -179,9 +183,9 @@ public class GameActivity extends AppCompatActivity {
 		// If it's over, disable the guess edit and change the guess button text. (see the beginning of this method)
 		if (this.failsRemaining < 0 || this.gameOver) {
 			this.gameOver = true;
-			this.guessEdit.setEnabled(false);
-			this.guessEdit.setVisibility(View.INVISIBLE);
-			((Button) this.findViewById(R.id.guess_button)).setText(R.string.game_over);
+//			this.guessEdit.setEnabled(false);
+//			this.guessEdit.setVisibility(View.INVISIBLE);
+			((Button) this.findViewById(R.id.button_guess)).setText(R.string.game_over);
 		}
 	}
 }
