@@ -43,5 +43,15 @@
 		app:layout_constraintLeft_toLeftOf="parent"
 		app:layout_constraintRight_toRightOf="parent" />
 
+	<TextView
+		android:id="@+id/text_hyperlink"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:layout_marginTop="32dp"
+		android:textSize="16sp"
+		android:lineSpacingMultiplier="1.5"
+		app:layout_constraintTop_toBottomOf="@+id/return_button"
+		app:layout_constraintLeft_toLeftOf="parent" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
 

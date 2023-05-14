@@ -2,6 +2,8 @@ package com.example.hangman;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
+import android.text.method.LinkMovementMethod;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -9,6 +11,8 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.util.Objects;
 
 public class ResultActivity extends AppCompatActivity {
 	// Purpose: Here's code to run upon the creation of the activity.
@@ -21,7 +25,7 @@ public class ResultActivity extends AppCompatActivity {
 		this.setContentView(R.layout.activity_result);
 
 		// Set up the top app bar:
-		this.getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+		Objects.requireNonNull(this.getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
 		this.getSupportActionBar().setHomeAsUpIndicator(R.drawable.baseline_wb_sunny_24);
 		this.getSupportActionBar().setTitle(this.getString(R.string.app_name) + ": " + this.getString(R.string.result_title));
 
@@ -37,6 +41,16 @@ public class ResultActivity extends AppCompatActivity {
 		outcomeTextView.setText(outcomeText);
 		((TextView) this.findViewById(R.id.the_word_text)).setText(this.getString(R.string.result_the_word) + ": " + bundle.getString("THE_WORD"));
 		((TextView) this.findViewById(R.id.fails_remaining_text)).setText(this.getString(R.string.global_fails_remaining) + ": " + String.valueOf(bundle.getInt("FAILS_REMAINING")));
+
+		TextView hyperlinkView = (TextView) findViewById(R.id.text_hyperlink);
+		String theWord = bundle.getString("THE_WORD").toLowerCase();
+		String urlTFD = "http://www.thefreedictionary.com/" + theWord;
+		String urlDictionary = "https://www.dictionary.com/browse/" + theWord;
+		String hyperlinkText = "Are you curious about the dictionary entry?<br />" +
+				"<a href='" + urlTFD + "'>TheFreeDictionary</a> (Internet)<br />" +
+				"<a href='" + urlDictionary + "'>dictionary.com</a> (Internet)";
+		hyperlinkView.setText(Html.fromHtml(hyperlinkText));
+		hyperlinkView.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	// Purpose: Load the options menu: The about item.
