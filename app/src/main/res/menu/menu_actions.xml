@@ -6,7 +6,7 @@
 	<item
 		android:id="@+id/global_new_game"
 		android:icon="@drawable/ic_baseline_play_arrow_24"
-		android:title="@string/global_new_game"
+		android:title="@string/action_new_word"
 		app:showAsAction="always" />
 
 	<item

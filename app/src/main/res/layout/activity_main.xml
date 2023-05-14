@@ -24,15 +24,26 @@
 			app:layout_constraintRight_toRightOf="parent" />
 
 		<Button
-			android:id="@+id/new_game_button"
+			android:id="@+id/button_new_simple"
 			android:layout_width="128dp"
 			android:layout_height="wrap_content"
 			android:layout_marginTop="64dp"
-			android:onClick="clickNewGame"
-			android:text="@string/global_new_game"
+			android:onClick="clickNewGameSimple"
+			android:text="@string/main_new_simple"
 			app:layout_constraintLeft_toLeftOf="parent"
 			app:layout_constraintRight_toRightOf="parent"
 			app:layout_constraintTop_toBottomOf="@+id/title_text" />
+
+		<Button
+			android:id="@+id/button_new_tricky"
+			android:layout_width="128dp"
+			android:layout_height="wrap_content"
+			android:layout_marginTop="24dp"
+			android:onClick="clickNewGameTricky"
+			android:text="@string/main_new_tricky"
+			app:layout_constraintLeft_toLeftOf="parent"
+			app:layout_constraintRight_toRightOf="parent"
+			app:layout_constraintTop_toBottomOf="@+id/button_new_simple" />
 
 		<Button
 			android:id="@+id/about_button"
@@ -40,7 +51,7 @@
 			android:layout_height="wrap_content"
 			android:onClick="clickAbout"
 			android:text="@string/global_about"
-			app:layout_constraintTop_toBottomOf="@+id/new_game_button"
+			app:layout_constraintTop_toBottomOf="@+id/button_new_tricky"
 			app:layout_constraintRight_toRightOf="parent"
 			app:layout_constraintLeft_toLeftOf="parent"
 			android:layout_marginTop="32dp" />

@@ -40,7 +40,7 @@ public class Tools {
 
 			String line;
 			while ((line = reader.readLine()) != null) {
-				arliLines.add(line);
+				arliLines.add(line.toUpperCase());
 			}
 		} catch (IOException e) {
 			e.printStackTrace();

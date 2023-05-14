@@ -2,9 +2,11 @@
 
 	<string name="app_name">Sunshine</string>
 	<string name="global_about">About</string>
-	<string name="global_new_game">Play!</string>
 	<string name="global_fails_remaining">Blunders remaining</string>
+	<string name="main_new_simple">Easy</string>
+	<string name="main_new_tricky">Tricky</string>
 	<string name="action_back">Back</string>
+	<string name="action_new_word">Play</string>
 	<string name="game_guess">&gt;&gt;</string>
 	<string name="game_over">!!</string>
 	<string name="result_title">The end</string>

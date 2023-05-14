@@ -6,8 +6,14 @@ import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.util.Objects;
+
 public class MainActivity extends AppCompatActivity {
-	private static String[] words;
+	private static String[] wordsSimple;
+	private static String[] wordsTricky;
+	public static Difficulty difficulty;
+
+	private enum Difficulty { SIMPLE, TRICKY, IMPOSSIBLE };
 
 	// Purpose: Here's code to run upon the creation of the activity.
 	// Arguments: Bundle savedInstanceState
@@ -19,23 +25,40 @@ public class MainActivity extends AppCompatActivity {
 		this.setContentView(R.layout.activity_main);
 
 		// Hide the top app bar.
-		this.getSupportActionBar().hide();
+		Objects.requireNonNull(this.getSupportActionBar()).hide();
 
 		// Load and store all words once.
-		MainActivity.words = Tools.loadTextAsset(this, "dictionary.txt");
+		MainActivity.wordsSimple = Tools.loadTextAsset(this, "en-us-simple.txt");
+		MainActivity.wordsTricky = Tools.loadTextAsset(this, "en-us-tricky.txt");
 	}
 
 	// Purpose: Pick a word from the stored array and return it.
 	// Arguments: -
 	// Return: String
 	public static String pickWord() {
-		return MainActivity.words[(int) Math.floor(Math.random() * MainActivity.words.length)];
+		switch (MainActivity.difficulty) {
+			case SIMPLE:
+				return MainActivity.wordsSimple[(int) Math.floor(Math.random() * MainActivity.wordsSimple.length)];
+			case TRICKY:
+				return MainActivity.wordsTricky[(int) Math.floor(Math.random() * MainActivity.wordsTricky.length)];
+		}
+
+		return "KWYJIBO";
 	}
 
 	// Purpose: This button selects a word from the dictionary and starts GameActivity with it.
 	// Arguments: View view
 	// Return: -
-	public void clickNewGame(View view) {
+	public void clickNewGameSimple(View view) {
+		MainActivity.difficulty = Difficulty.SIMPLE;
+
+		Intent intent = new Intent(this, GameActivity.class);
+		this.startActivity(intent);
+	}
+
+	public void clickNewGameTricky(View view) {
+		MainActivity.difficulty = Difficulty.TRICKY;
+
 		Intent intent = new Intent(this, GameActivity.class);
 		this.startActivity(intent);
 	}
