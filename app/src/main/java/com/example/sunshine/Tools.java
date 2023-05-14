@@ -1,4 +1,4 @@
-package com.example.hangman;
+package com.example.sunshine;
 
 import android.content.Context;
 import android.widget.Toast;
@@ -9,6 +9,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class Tools {
+	public static final float sqrtTwo = (float) Math.sqrt(2.0d);
 	private static Toast mToast;
 
 	// Purpose: Constructor!

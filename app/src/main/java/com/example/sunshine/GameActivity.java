@@ -1,4 +1,4 @@
-package com.example.hangman;
+package com.example.sunshine;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
@@ -141,7 +141,7 @@ public class GameActivity extends AppCompatActivity {
 
 		// Deal with a miss:
 		if (!letterFound) {
-			((Art) this.findViewById(R.id.hangman_art)).progress();
+			((Art) this.findViewById(R.id.sunshine_art)).progress();
 			this.failsRemaining--;
 			this.failsRemainingText.setText(this.getString(R.string.global_fails_remaining) + ": " + (Math.max(this.failsRemaining, 0))); // Don't display -1.
 		} else { // On at least one hit, update the displayed guessed word:

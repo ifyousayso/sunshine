@@ -1,4 +1,4 @@
-package com.example.hangman;
+package com.example.sunshine;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,7 +11,7 @@ import java.util.Objects;
 public class MainActivity extends AppCompatActivity {
 	private static String[] wordsSimple;
 	private static String[] wordsTricky;
-	public static Difficulty difficulty;
+	private static Difficulty difficulty;
 
 	private enum Difficulty { SIMPLE, TRICKY, IMPOSSIBLE };
 
@@ -38,9 +38,13 @@ public class MainActivity extends AppCompatActivity {
 	public static String pickWord() {
 		switch (MainActivity.difficulty) {
 			case SIMPLE:
-				return MainActivity.wordsSimple[(int) Math.floor(Math.random() * MainActivity.wordsSimple.length)];
+				return MainActivity.wordsSimple[
+					(int) Math.floor(Math.random() * MainActivity.wordsSimple.length)
+				];
 			case TRICKY:
-				return MainActivity.wordsTricky[(int) Math.floor(Math.random() * MainActivity.wordsTricky.length)];
+				return MainActivity.wordsTricky[
+					(int) Math.floor(Math.random() * MainActivity.wordsTricky.length)
+				];
 		}
 
 		return "KWYJIBO";

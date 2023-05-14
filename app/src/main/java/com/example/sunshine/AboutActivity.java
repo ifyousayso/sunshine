@@ -1,4 +1,4 @@
-package com.example.hangman;
+package com.example.sunshine;
 
 import android.os.Bundle;
 import android.view.MenuItem;

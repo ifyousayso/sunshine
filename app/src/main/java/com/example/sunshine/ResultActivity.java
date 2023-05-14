@@ -1,4 +1,4 @@
-package com.example.hangman;
+package com.example.sunshine;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -42,15 +42,19 @@ public class ResultActivity extends AppCompatActivity {
 		((TextView) this.findViewById(R.id.the_word_text)).setText(this.getString(R.string.result_the_word) + ": " + bundle.getString("THE_WORD"));
 		((TextView) this.findViewById(R.id.fails_remaining_text)).setText(this.getString(R.string.global_fails_remaining) + ": " + String.valueOf(bundle.getInt("FAILS_REMAINING")));
 
-		TextView hyperlinkView = (TextView) findViewById(R.id.text_hyperlink);
+		TextView hyperlinkTFD = (TextView) this.findViewById(R.id.text_hyperlink_tfd);
 		String theWord = bundle.getString("THE_WORD").toLowerCase();
-		String urlTFD = "http://www.thefreedictionary.com/" + theWord;
-		String urlDictionary = "https://www.dictionary.com/browse/" + theWord;
-		String hyperlinkText = "Are you curious about the dictionary entry?<br />" +
-				"<a href='" + urlTFD + "'>TheFreeDictionary</a> (Internet)<br />" +
-				"<a href='" + urlDictionary + "'>dictionary.com</a> (Internet)";
-		hyperlinkView.setText(Html.fromHtml(hyperlinkText));
-		hyperlinkView.setMovementMethod(LinkMovementMethod.getInstance());
+		String anchorTFD = "<a href=\"http://www.thefreedictionary.com/" + theWord + "\">" +
+				this.getString(R.string.result_tfd) + "</a> (" +
+				this.getString(R.string.result_internet) + ")";
+		hyperlinkTFD.setText(Html.fromHtml(anchorTFD));
+		hyperlinkTFD.setMovementMethod(LinkMovementMethod.getInstance());
+		TextView hyperlinkDict = (TextView) this.findViewById(R.id.text_hyperlink_dict);
+		String anchorDict = "<a href=\"https://www.dictionary.com/browse/" + theWord + "\">" +
+				this.getString(R.string.result_dict) + "</a> (" +
+				this.getString(R.string.result_internet) + ")";
+		hyperlinkDict.setText(Html.fromHtml(anchorDict));
+		hyperlinkDict.setMovementMethod(LinkMovementMethod.getInstance());
 	}
 
 	// Purpose: Load the options menu: The about item.

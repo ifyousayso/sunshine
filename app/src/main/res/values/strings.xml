@@ -14,6 +14,10 @@
 	<string name="result_lost">You lost</string>
 	<string name="result_the_word">The chosen word</string>
 	<string name="result_return">Main menu</string>
+	<string name="result_hyperlink_question">Are you curious about the dictionary entry?</string>
+	<string name="result_internet">Internet</string>
+	<string name="result_tfd">TheFreeDictionary</string>
+	<string name="result_dict">dictionary.com</string>
 	<string name="about_message">Developed by GT!</string>
 
 </resources>
